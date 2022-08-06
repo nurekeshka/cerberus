@@ -18,5 +18,9 @@ def parse_csv(path: str):
 class Command(BaseCommand):
     help = 'Это команда запуска парсера для менеджера паролей'
 
+    def add_arguments(self, parser):
+        parser.add_argument('path', type=str)
+
+
     def handle(self, *args, **kwargs):
-        parse_csv(r'C:\Users\Nurbek\OneDrive\Документы\Backup\opera-password.csv')
+        parse_csv(kwargs['path'])
